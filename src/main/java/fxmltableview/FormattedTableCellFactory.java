@@ -1,3 +1,4 @@
+package fxmltableview;
 import java.text.Format;
 
 import javafx.geometry.Pos;
