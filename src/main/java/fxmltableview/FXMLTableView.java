@@ -11,8 +11,6 @@ public class FXMLTableView extends Application {
 	@Override
 	public void start(Stage primaryStage) throws Exception {
 		primaryStage.setTitle("FXML TableView Example");
-		// Pane myPane =
-		// (Pane)FXMLLoader.load(getClass().getClassLoader().getResource("fxml_tableview.fxml"));
 
 		FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("fxml_tableview.fxml"));
 		Pane myPane = loader.load();

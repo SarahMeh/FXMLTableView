@@ -1,4 +1,5 @@
 package fxmltableview;
+
 import javafx.beans.property.SimpleStringProperty;
 
 public class Person {
