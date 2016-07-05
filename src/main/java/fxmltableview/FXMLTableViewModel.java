@@ -18,6 +18,14 @@ public class FXMLTableViewModel {
 		conn = DriverManager.getConnection(url);
 	}
 
+	public FXMLTableViewModel() throws Exception {
+		String sDriverName = "org.sqlite.JDBC";
+		Class.forName(sDriverName);
+
+		String url = "jdbc:sqlite:addressbook.db";
+		conn = DriverManager.getConnection(url);
+	}
+
 	public void createTable() throws Exception {
 		Statement stmt = conn.createStatement();
 		String sql = "CREATE TABLE IF NOT EXISTS addressbook (\n" + "	id integer PRIMARY KEY,\n"
@@ -48,5 +56,15 @@ public class FXMLTableViewModel {
 		Statement stmt;
 		stmt = conn.createStatement();
 		stmt.executeUpdate("DELETE FROM addressbook WHERE firstname = \'" + firstName + "\'");
+	}
+
+	public void updateValues(String origFirstName, String firstName, String lastName, String email) {
+		try {
+			Statement stmt = conn.createStatement();
+			stmt.executeUpdate("UPDATE addressbook SET firstName = \'" + firstName + "\', lastName = \'" + lastName
+					+ "\'," + "email = \'" + email + "\' WHERE firstName = \'" + origFirstName + "\'");
+		} catch (Exception ex) {
+			ex.printStackTrace();
+		}
 	}
 }
